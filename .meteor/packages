@@ -5,7 +5,13 @@
 # but you can also edit it by hand.
 
 meteor-platform
+less
+npm-container
+accounts-base
 aldeed:collection2@2.3.2
 aldeed:simple-schema@1.2.0
 aldeed:autoform
+iron:router
 matb33:collection-hooks
+meteorhacks:npm
+nemo64:bootstrap

@@ -2,6 +2,10 @@
 
 Prices = new Mongo.Collection("prices");
 
+if (Meteor.isServer) {
+  Prices._ensureIndex({createdAt: 1});
+}
+
 var priceSchema = new SimpleSchema({
   price: {
     type: Number,

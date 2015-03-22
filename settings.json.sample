@@ -1,0 +1,6 @@
+{
+  "public": {
+    "AUTH_STRATEGY": "LDAP"
+  },
+  "LDAP_URL": "ldap://ldap.rit.edu"
+}

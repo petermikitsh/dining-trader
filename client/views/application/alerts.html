@@ -1,0 +1,11 @@
+<template name="alerts">
+  {{#if alerts}}
+  <div class="alert alert-info alert-header">
+    <div class="container">
+      {{#each alerts}}
+        <div>- {{ message }}</div>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+</template>

@@ -54,6 +54,10 @@ Meteor.methods({
   createOrder: function (doc) {
     var order = _.pick(doc, 'type', 'limitPrice');
     order.createdAt = new Date().getTime();
+    // Round limitPrice to two decimals
+    if (order.limitPrice) {
+      order.limitPrice = Number(order.limitPrice.toFixed(2));
+    }
     // Market Buy (take the lowest seller price)
     if (order.type == "Buy" && _.isUndefined(order.limitPrice)) {
       order.limitPrice = Number.MAX_VALUE;
@@ -77,7 +81,7 @@ Orders.after.insert(function (userId, doc) {
     {sort: {limitPrice: 1, createdAt: 1}}
   );
   if (buyer && seller &&
-     buyer.limitPrice > seller.limitPrice) {
+     buyer.limitPrice >= seller.limitPrice) {
        onMatch(buyer, seller);
   }
 });

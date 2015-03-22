@@ -17,6 +17,11 @@
         </button>
       </div>
       <div class="collapse navbar-collapse" id="nav-collapse" style="border: 0;">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="{{ isActiveRoute regex='about' }}">
+            <a href="{{ pathFor 'about' }}">About</a>
+          </li>      
+        </ul>
         <ul class="nav navbar-nav navbar-right"> 
           {{#if currentUser}}
             <li class="dropdown">
